@@ -40,7 +40,7 @@ Content:
 
         return "\n".join(formatted)
 
-    def ask(self, question: str)
+    def ask(self, question: str):
         
         # STEP 1: RETRIEVE
 
