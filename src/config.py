@@ -1,24 +1,11 @@
 import os
 from pathlib import Path
-
 from dotenv import load_dotenv
 
 
-# ============================================================
-# PROJECT PATHS
-# ============================================================
-
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 DATA_DIR = BASE_DIR / "data"
-
 VECTORSTORE_DIR = BASE_DIR / "vectorstore"
-
-
-# ============================================================
-# ENVIRONMENT VARIABLES
-# ============================================================
-
 load_dotenv(BASE_DIR / ".env")
 
 
@@ -34,11 +21,6 @@ EMBEDDING_MODEL = os.getenv(
     "sentence-transformers/all-MiniLM-L6-v2"
 )
 
-
-# ============================================================
-# RAG SETTINGS
-# ============================================================
-
 TOP_K = int(
     os.getenv("TOP_K", "4")
 )
@@ -50,11 +32,6 @@ CHUNK_SIZE = int(
 CHUNK_OVERLAP = int(
     os.getenv("CHUNK_OVERLAP", "150")
 )
-
-
-# ============================================================
-# VALIDATION
-# ============================================================
 
 if not GOOGLE_API_KEY:
     raise ValueError(
