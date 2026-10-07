@@ -1,0 +1,93 @@
+AI KNOWLEDGE BASE
+Artificial Intelligence — 5 Page Text Document
+
+========================================================================
+PAGE 1 — ARTIFICIAL INTELLIGENCE FUNDAMENTALS
+========================================================================
+
+Artificial Intelligence is the broader field concerned with building systems that perform tasks associated with intelligent behavior, including perception, reasoning, planning, learning, language understanding, and decision-making.
+
+AI includes several paradigms. Symbolic AI represents knowledge explicitly using rules, logic, and search. Machine learning learns patterns from examples. Deep learning uses multilayer neural networks, and generative AI produces new text, images, audio, video, or code.
+
+An AI system usually has an input, an internal representation or model, an inference process, and an output. The engineering objective is not simply to maximize model capability but to build a reliable system around the model.
+
+Search and planning algorithms explore possible actions or states. Classical examples include breadth-first search, depth-first search, A* search, minimax, and constraint satisfaction methods.
+
+AI systems can be evaluated on task accuracy, robustness, latency, cost, safety, interpretability, and user impact. The appropriate metric depends on the system's intended use.
+
+
+
+[PAGE BREAK]
+
+
+========================================================================
+PAGE 2 — GENERATIVE AI AND LARGE LANGUAGE MODELS
+========================================================================
+
+Generative AI models learn distributions that allow them to produce new content. Large language models generate text by predicting tokens conditioned on previous context and, in many systems, additional instructions.
+
+Prompting specifies the task, constraints, context, and expected output. Clear prompts reduce ambiguity. Structured outputs such as JSON can make model responses easier to validate and integrate into software.
+
+Temperature and sampling parameters influence generation behavior. Lower randomness generally produces more deterministic outputs, while higher randomness can increase diversity. These parameters do not replace good prompting or evaluation.
+
+Fine-tuning changes model parameters using task-specific examples. Retrieval-Augmented Generation instead supplies external information at inference time, allowing knowledge to be updated without retraining the base model.
+
+LLMs can produce plausible but incorrect statements. This behavior is often called hallucination. Applications should use retrieval, validation, constrained outputs, tool calls, and human review where correctness is critical.
+
+
+
+[PAGE BREAK]
+
+
+========================================================================
+PAGE 3 — AI AGENTS AND TOOL USE
+========================================================================
+
+An AI agent is a system that uses a model to decide or coordinate actions toward a goal. An agent may call tools such as search, databases, calculators, APIs, code interpreters, or business applications.
+
+A simple agent loop can be represented as plan, act, observe, and revise. The model chooses an action, receives the result, and determines the next action until a termination condition is reached.
+
+Tool schemas are important because they constrain what the model can request. Applications should validate arguments before executing tools and enforce authorization independently of model output.
+
+Agent memory can include short-term conversation context, retrieved knowledge, and persistent user-specific information. Memory should have explicit boundaries because unnecessary retention increases privacy and operational risk.
+
+Multi-agent architectures divide work between specialized agents, but additional agents increase orchestration complexity, latency, and cost. A single well-designed workflow is often preferable when the task does not require independent roles.
+
+
+
+[PAGE BREAK]
+
+
+========================================================================
+PAGE 4 — AI SAFETY, SECURITY, AND EVALUATION
+========================================================================
+
+AI safety includes preventing harmful behavior, unauthorized actions, privacy violations, and unreliable outputs. Safety controls should be implemented at multiple layers rather than relying solely on a system prompt.
+
+Prompt injection occurs when untrusted content attempts to manipulate an AI system's instructions. Retrieved documents, webpages, emails, and user-provided files should therefore be treated as data, not automatically trusted instructions.
+
+Evaluation should include representative examples, adversarial cases, edge cases, and regression tests. For RAG systems, retrieval evaluation and generation evaluation should be measured separately.
+
+Cost and latency are engineering constraints. Smaller models, caching, batching, shorter prompts, efficient retrieval, and local inference can reduce operational cost when quality remains acceptable.
+
+Privacy requires minimizing unnecessary collection, controlling access, protecting secrets, and understanding where data is processed. Sensitive data should not be sent to external services without appropriate authorization and controls.
+
+
+
+[PAGE BREAK]
+
+
+========================================================================
+PAGE 5 — BUILDING PRODUCTION AI APPLICATIONS
+========================================================================
+
+A production AI application should separate deterministic application logic from probabilistic model behavior. Validation, business rules, permissions, database operations, and critical calculations should not depend solely on model compliance.
+
+A typical RAG application contains document ingestion, parsing, chunking, embeddings, vector storage, retrieval, prompt construction, generation, response validation, and observability.
+
+Observability should capture latency, token usage, retrieval results, model errors, validation failures, and user feedback while avoiding unnecessary storage of sensitive content.
+
+Fallback strategies improve reliability. If retrieval fails, the system may return a controlled response rather than fabricate an answer. If a model or tool is unavailable, a simpler deterministic path can be used.
+
+Production readiness requires testing, versioning, monitoring, access control, error handling, reproducible deployment, and clear documentation. The strongest AI architecture is usually the simplest architecture that satisfies the requirements.
+
