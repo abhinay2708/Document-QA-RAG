@@ -2,6 +2,21 @@ from langchain_core.output_parsers import StrOutputParser
 from src.retriever import get_retriever
 from src.generator import get_llm, get_prompt
 
+def is_greeting(question: str) -> bool:
+
+    greetings = {
+        "hi",
+        "hello",
+        "hey",
+        "hii",
+        "hiii",
+        "good morning",
+        "good afternoon",
+        "good evening"
+    }
+
+    return question.lower().strip() in greetings
+
 class RAGPipeline:
 
     def __init__(self):
@@ -41,6 +56,16 @@ Content:
         return "\n".join(formatted)
 
     def ask(self, question: str):
+
+        # STEP 0: Greeting
+        if is_greeting(question):
+
+            return {
+                "answer":
+                    "Hello! You can ask me questions "
+                    "about the documents in my knowledge base.",
+                "sources": []
+            }
         
         # STEP 1: RETRIEVE
 
